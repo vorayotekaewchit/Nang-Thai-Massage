@@ -12,7 +12,7 @@ interface ServiceCardProps {
 function ServiceCard({ icon, title, description, price, index }: ServiceCardProps) {
   return (
     <motion.div 
-      className="group border border-stone-200 p-6 sm:p-8 hover:border-emerald-900 transition-colors"
+      className="group border border-stone-200 p-5 sm:p-8 hover:border-emerald-900 transition-colors"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
@@ -25,9 +25,9 @@ function ServiceCard({ icon, title, description, price, index }: ServiceCardProp
       >
         {icon}
       </motion.div>
-      <h3 className="text-emerald-900 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold">{title}</h3>
-      <p className="text-stone-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">{description}</p>
-      <div className="text-emerald-900 text-lg sm:text-xl font-bold">{price}</div>
+      <h3 className="text-emerald-900 mb-3 sm:mb-3 text-lg sm:text-xl font-semibold leading-tight">{title}</h3>
+      <p className="text-stone-600 mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">{description}</p>
+      <div className="text-emerald-900 text-xl sm:text-xl font-bold">{price}</div>
     </motion.div>
   );
 }
@@ -78,7 +78,7 @@ export function Services() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} index={index} />
           ))}

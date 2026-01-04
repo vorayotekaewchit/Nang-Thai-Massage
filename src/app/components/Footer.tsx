@@ -26,13 +26,14 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="text-emerald-900 mb-3 sm:mb-4 font-semibold text-sm sm:text-base">Quick Links</h4>
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <h4 className="text-emerald-900 mb-4 sm:mb-4 font-semibold text-sm sm:text-base">Quick Links</h4>
+            <ul className="space-y-3 text-sm sm:text-sm">
               <li>
                 <motion.a 
                   href="#services" 
-                  className="text-stone-600 hover:text-emerald-900 transition-colors block"
+                  className="text-stone-600 hover:text-emerald-900 active:text-emerald-800 transition-colors block py-2 -ml-2 pl-2 rounded-md hover:bg-stone-50 active:bg-stone-100 touch-manipulation min-h-[44px] flex items-center"
                   whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Services
                 </motion.a>
@@ -40,8 +41,9 @@ export function Footer() {
               <li>
                 <motion.a 
                   href="#about" 
-                  className="text-stone-600 hover:text-emerald-900 transition-colors block"
+                  className="text-stone-600 hover:text-emerald-900 active:text-emerald-800 transition-colors block py-2 -ml-2 pl-2 rounded-md hover:bg-stone-50 active:bg-stone-100 touch-manipulation min-h-[44px] flex items-center"
                   whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   About Us
                 </motion.a>
@@ -49,8 +51,9 @@ export function Footer() {
               <li>
                 <motion.a 
                   href="#reviews" 
-                  className="text-stone-600 hover:text-emerald-900 transition-colors block"
+                  className="text-stone-600 hover:text-emerald-900 active:text-emerald-800 transition-colors block py-2 -ml-2 pl-2 rounded-md hover:bg-stone-50 active:bg-stone-100 touch-manipulation min-h-[44px] flex items-center"
                   whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Reviews
                 </motion.a>
@@ -58,8 +61,9 @@ export function Footer() {
               <li>
                 <motion.a 
                   href="#contact" 
-                  className="text-stone-600 hover:text-emerald-900 transition-colors block"
+                  className="text-stone-600 hover:text-emerald-900 active:text-emerald-800 transition-colors block py-2 -ml-2 pl-2 rounded-md hover:bg-stone-50 active:bg-stone-100 touch-manipulation min-h-[44px] flex items-center"
                   whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Contact
                 </motion.a>
@@ -80,7 +84,7 @@ export function Footer() {
               <li className="pt-2">
                 <motion.a 
                   href="tel:+353" 
-                  className="hover:text-emerald-900 transition-colors inline-block"
+                  className="hover:text-emerald-900 active:text-emerald-800 transition-colors inline-block py-2 px-3 -ml-3 rounded-md hover:bg-stone-50 active:bg-stone-100 touch-manipulation min-h-[44px] flex items-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

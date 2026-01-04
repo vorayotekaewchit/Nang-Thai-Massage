@@ -6,11 +6,22 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsMenuOpen(false);
-    }
+    setIsMenuOpen(false);
+    
+    // Use requestAnimationFrame to ensure layout has settled after menu closes
+    requestAnimationFrame(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const navHeight = 80; // Height of the fixed navbar
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navHeight;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition), // Ensure we don't scroll to negative values
+          behavior: 'smooth'
+        });
+      }
+    });
   };
 
   return (
@@ -19,6 +30,7 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-stone-200 z-50"
+      style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
@@ -69,8 +81,10 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-stone-600"
+            className="md:hidden p-3 text-stone-600 touch-manipulation"
             whileTap={{ scale: 0.9 }}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
@@ -86,10 +100,10 @@ export function Navigation() {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden border-t border-stone-200"
             >
-              <div className="pb-4 pt-4 space-y-1">
+              <div className="pb-4 pt-4 space-y-2">
                 <motion.button
                   onClick={() => scrollToSection('services')}
-                  className="block w-full text-left px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors"
+                  className="block w-full text-left px-5 py-4 text-stone-600 hover:bg-stone-50 active:bg-stone-100 transition-colors touch-manipulation min-h-[48px] flex items-center text-base"
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1 }}
@@ -98,7 +112,7 @@ export function Navigation() {
                 </motion.button>
                 <motion.button
                   onClick={() => scrollToSection('about')}
-                  className="block w-full text-left px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors"
+                  className="block w-full text-left px-5 py-4 text-stone-600 hover:bg-stone-50 active:bg-stone-100 transition-colors touch-manipulation min-h-[48px] flex items-center text-base"
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -107,7 +121,7 @@ export function Navigation() {
                 </motion.button>
                 <motion.button
                   onClick={() => scrollToSection('reviews')}
-                  className="block w-full text-left px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors"
+                  className="block w-full text-left px-5 py-4 text-stone-600 hover:bg-stone-50 active:bg-stone-100 transition-colors touch-manipulation min-h-[48px] flex items-center text-base"
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.2 }}
@@ -116,7 +130,7 @@ export function Navigation() {
                 </motion.button>
                 <motion.button
                   onClick={() => scrollToSection('contact')}
-                  className="block w-full bg-emerald-900 text-white px-4 py-3 rounded-md hover:bg-emerald-800 transition-colors mt-2"
+                  className="block w-full bg-emerald-900 text-white px-5 py-4 rounded-md hover:bg-emerald-800 active:bg-emerald-700 transition-colors touch-manipulation min-h-[48px] flex items-center justify-center text-base font-medium mt-2"
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.25 }}

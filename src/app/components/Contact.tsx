@@ -54,7 +54,7 @@ export function Contact() {
               <div className="pl-7">
                 <motion.a 
                   href="tel:+353"
-                  className="text-stone-600 hover:text-emerald-900 transition-colors text-sm sm:text-base"
+                  className="text-stone-600 hover:text-emerald-900 active:text-emerald-800 transition-colors text-base sm:text-base font-medium inline-block py-2 px-3 -ml-3 rounded-md hover:bg-stone-100 active:bg-stone-200 touch-manipulation min-h-[44px] flex items-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -71,16 +71,16 @@ export function Contact() {
                 <Clock size={20} strokeWidth={1.5} />
                 <span className="font-semibold">Hours</span>
               </div>
-              <div className="space-y-2 text-stone-600 pl-7 text-sm sm:text-base">
-                <div className="flex justify-between max-w-xs">
+              <div className="space-y-3 text-stone-600 pl-7 text-sm sm:text-base">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 max-w-xs">
                   <span>Monday - Friday</span>
                   <span className="font-medium">10:00 - 20:00</span>
                 </div>
-                <div className="flex justify-between max-w-xs">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 max-w-xs">
                   <span>Saturday</span>
                   <span className="font-medium">10:00 - 18:00</span>
                 </div>
-                <div className="flex justify-between max-w-xs">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 max-w-xs">
                   <span>Sunday</span>
                   <span className="font-medium">12:00 - 18:00</span>
                 </div>

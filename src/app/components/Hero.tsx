@@ -18,45 +18,45 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center">
-        <div className="space-y-6 sm:space-y-8">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+        <div className="space-y-8 sm:space-y-8">
           <motion.div 
-            className="space-y-3 sm:space-y-4"
+            className="space-y-4 sm:space-y-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-white px-2" style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: '1.1' }}>
+            <h1 className="text-white px-2" style={{ fontSize: 'clamp(1.875rem, 5vw, 4.5rem)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: '1.1' }}>
               Nang Thai Aroma Massage
             </h1>
-            <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-2">
+            <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-2 leading-relaxed">
               Authentic Thai Aroma Massage in Dundalk – relax, unwind, and restore your energy
             </p>
           </motion.div>
 
           {/* CTA Buttons */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4 px-4"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-4 justify-center items-center pt-4 px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <motion.a
               href="tel:+353"
-              className="w-full sm:w-auto bg-white text-emerald-900 px-6 sm:px-8 py-3 rounded-md hover:bg-stone-50 transition-colors flex items-center justify-center gap-2 text-sm sm:text-base"
+              className="w-full sm:w-auto bg-white text-emerald-900 px-8 sm:px-8 py-4 rounded-md hover:bg-stone-50 active:bg-stone-100 transition-colors flex items-center justify-center gap-2 text-base sm:text-base font-medium touch-manipulation min-h-[48px] shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Phone size={18} />
+              <Phone size={20} />
               <span>Book by Call</span>
             </motion.a>
             <motion.a
               href="#contact"
-              className="w-full sm:w-auto bg-emerald-900 text-white px-6 sm:px-8 py-3 rounded-md hover:bg-emerald-800 transition-colors flex items-center justify-center gap-2 text-sm sm:text-base"
+              className="w-full sm:w-auto bg-emerald-900 text-white px-8 sm:px-8 py-4 rounded-md hover:bg-emerald-800 active:bg-emerald-700 transition-colors flex items-center justify-center gap-2 text-base sm:text-base font-medium touch-manipulation min-h-[48px] shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Calendar size={18} />
+              <Calendar size={20} />
               <span>Book Online</span>
             </motion.a>
           </motion.div>
