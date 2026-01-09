@@ -14,7 +14,7 @@ export function Hero() {
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: 'easeOut' }}
         />
-        <div className="absolute inset-0 bg-stone-900/50"></div>
+        <div className="absolute inset-0 bg-stone-900/70"></div>
       </div>
 
       {/* Content */}
@@ -29,7 +29,7 @@ export function Hero() {
             <h1 className="text-white px-2" style={{ fontSize: 'clamp(1.875rem, 5vw, 4.5rem)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: '1.1' }}>
               Nang Thai Aroma Massage
             </h1>
-            <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-2 leading-relaxed">
+            <p className="text-white text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-2 leading-relaxed">
               Authentic Thai Aroma Massage in Dundalk – relax, unwind, and restore your energy
             </p>
           </motion.div>

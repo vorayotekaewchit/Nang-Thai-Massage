@@ -10,11 +10,13 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <Hero />
-      <Services />
-      <About />
-      <Reviews />
-      <Contact />
+      <main>
+        <Hero />
+        <Services />
+        <About />
+        <Reviews />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

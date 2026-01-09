@@ -25,13 +25,14 @@ export function Navigation() {
   };
 
   return (
-    <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-stone-200 z-50"
-      style={{ paddingTop: 'env(safe-area-inset-top)' }}
-    >
+    <header>
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-stone-200 z-50"
+        style={{ paddingTop: 'env(safe-area-inset-top)' }}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <motion.div 
@@ -142,6 +143,7 @@ export function Navigation() {
           )}
         </AnimatePresence>
       </div>
-    </motion.nav>
+      </motion.nav>
+    </header>
   );
 }

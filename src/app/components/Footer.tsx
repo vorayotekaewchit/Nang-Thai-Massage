@@ -102,7 +102,7 @@ export function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-stone-500 text-xs sm:text-sm">
+          <p className="text-stone-600 text-xs sm:text-sm">
             © {currentYear} Nang Thai Aroma Massage
           </p>
         </motion.div>

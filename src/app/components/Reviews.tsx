@@ -39,7 +39,7 @@ function ReviewCard({ name, review, rating, date, index }: ReviewCardProps) {
 
       <div className="pt-4 sm:pt-6 border-t border-stone-200">
         <div className="text-emerald-900 font-semibold text-sm sm:text-base">{name}</div>
-        <div className="text-xs sm:text-sm text-stone-500">{date}</div>
+        <div className="text-xs sm:text-sm text-stone-600">{date}</div>
       </div>
     </motion.div>
   );

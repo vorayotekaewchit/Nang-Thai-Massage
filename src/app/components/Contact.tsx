@@ -102,9 +102,9 @@ export function Contact() {
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                <MapPin size={48} className="text-stone-400 mx-auto mb-4" strokeWidth={1.5} />
+                <MapPin size={48} className="text-stone-600 mx-auto mb-4" strokeWidth={1.5} />
                 </motion.div>
-                <p className="text-stone-500 text-sm sm:text-base">
+                <p className="text-stone-600 text-sm sm:text-base">
                   Christianstown, Readypenny<br />
                   Dundalk, Co. Louth
                 </p>
