@@ -2,78 +2,51 @@ import { motion } from 'motion/react';
 
 export function About() {
   return (
-    <section id="about" className="py-16 sm:py-24 md:py-32 bg-stone-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <motion.div 
-            className="order-2 lg:order-1"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="overflow-hidden rounded-lg">
-              <motion.img
-                src="https://images.unsplash.com/photo-1729337531424-198f880cb6c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxBc2lhbiUyMHdvbWFuJTIwdGhlcmFwaXN0JTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NTQ4NTQ4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Thai Therapist"
-                className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              />
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className="order-1 lg:order-2 space-y-4 sm:space-y-6"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className="text-emerald-900" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 400 }}>
-              About
-            </h2>
-            
-            <div className="space-y-3 sm:space-y-4 text-stone-600 leading-relaxed text-sm sm:text-base">
-              <p>
-                Welcome to Nang Thai Aroma Massage, where ancient Thai healing traditions meet modern wellness practices. 
-                Our studio is a sanctuary of peace nestled in the heart of Dundalk.
-              </p>
-              
-              <p>
-                Led by our experienced Thai therapist with over 10 years of training in traditional massage techniques, 
-                we bring authentic Thai healing arts to Ireland.
-              </p>
-              
-              <p>
-                Each session is tailored to your individual needs, whether you seek relief from tension, improved flexibility, 
-                or simply a moment of tranquility.
-              </p>
-            </div>
-
-            <motion.div 
-              className="grid grid-cols-2 gap-8 sm:gap-12 pt-6 sm:pt-8 border-t border-stone-200"
-              initial={{ opacity: 0, y: 20 }}
+    <section id="about" className="py-24 md:py-32 bg-card/80">
+      <div className="swiss-container">
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="col-span-12 lg:col-span-5 order-2 lg:order-1">
+            <h2 className="text-primary-foreground section-heading text-shadow-section">Our story</h2>
+            <p className="text-primary-foreground/85 text-sm mt-2 max-w-sm text-shadow-section">
+              From Thailand to Dundalk — a small space with a big tradition.
+            </p>
+            <motion.div
+              className="mt-8 space-y-5"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.4, ease: 'easeOut', staggerChildren: 0.1 }}
+            >
+              <motion.p
+                className="text-primary-foreground/90 text-sm leading-relaxed text-shadow-section"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+              >
+                Nang trained in Chiang Mai for over 10 years before bringing authentic Thai technique to Co. Louth. Today, in a peaceful studio in Christianstown, she offers the same care and craft you’d find in a Thai temple town—no rush, no noise—just skilled hands, warm oils, and time to breathe. With more than 500 clients welcomed, every visit is shaped around you: whether you need deep release, gentle stretching, or a moment of stillness away from the everyday.
+              </motion.p>
+            </motion.div>
+          </div>
+          <div className="col-span-12 lg:col-span-7 order-1 lg:order-2">
+            <motion.div
+              className="aspect-[4/3] lg:aspect-[3/2] overflow-hidden rounded-2xl shadow-lg"
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
             >
-              <motion.div 
-                className="space-y-1"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="text-2xl sm:text-3xl text-emerald-900 font-bold">10+</div>
-                <div className="text-stone-600 text-xs sm:text-sm">Years Experience</div>
-              </motion.div>
-              <motion.div 
-                className="space-y-1"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="text-2xl sm:text-3xl text-emerald-900 font-bold">500+</div>
-                <div className="text-stone-600 text-xs sm:text-sm">Happy Clients</div>
-              </motion.div>
+              <img
+                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
+                alt="Serene Thai massage studio in Dundalk — candles and calm at Nang Thai Massage"
+                className="w-full h-full object-cover"
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+              />
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

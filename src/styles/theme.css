@@ -1,81 +1,129 @@
 @custom-variant dark (&:is(.dark *));
 
+/* THAITONE COLOR palette — PAIROJ PITTAYAMATEE (hex from THAITONE 2.0) */
+:root {
+  /* Greens */
+  --thaitone-khiewtong: #21723e;        /* เขียวตอง — dark green (primary) */
+  --thaitone-khiewbaikhaae: #145139;   /* เขียวใบแค — deeper green */
+  --thaitone-khiewnamlai: #00968f;     /* เขียวน้ำไหล — teal */
+  --thaitone-morket: #009058;          /* มรกต — emerald */
+  --thaitone-khiewtungchaae: #45ab87;  /* เขียวตั้งแช — vibrant green */
+  /* Blues */
+  --thaitone-khraam: #16466e;          /* คราม — indigo blue */
+  --thaitone-morkhraam: #577896;       /* มอคราม — grey-blue (muted text) */
+  --thaitone-meckhraam: #072f4f;       /* เมฆคราม — dark blue */
+  --thaitone-namlai: #5aaebd;         /* น้ำไหล — teal blue */
+  --thaitone-kromtha: #1b2c55;        /* กรมท่า — navy */
+  /* Red / terracotta */
+  --thaitone-daengchat: #c9242b;      /* แดงชาด — chard red */
+  --thaitone-daengdtat: #951519;      /* แดงตัด — deep red */
+  --thaitone-dindaeng: #984c36;       /* ดินแดง — terracotta */
+  --thaitone-saehn: #f25821;          /* เสน — orange */
+  /* Gold / yellow */
+  --thaitone-champa: #eea31f;         /* จำปา — gold */
+  --thaitone-leuuangdin: #be9c25;     /* เหลืองดิน — golden yellow */
+  --thaitone-leuuangphlai: #ead415;   /* เหลืองไพล — pale yellow */
+  --thaitone-rongthong: #e8bb1f;      /* รงทอง */
+  --thaitone-nuaanjan: #dcc169;       /* นวลจันทร์ — muted gold */
+  /* Neutrals / cream */
+  --thaitone-ngachang: #fffde0;       /* งาช้าง — ivory */
+  --thaitone-khaophong: #f1ede2;      /* ขาวผ่อง — clean white */
+  --thaitone-mork: #dbccb9;           /* หมอก — mist */
+  --thaitone-nuaan: #dbcc90;          /* นวล — warm beige */
+  --thaitone-hongdin: #d59088;        /* หงดิน — soft terracotta */
+  /* Purple / mauve */
+  --thaitone-muaangmetmaprang: #702c7d;   /* ม่วงเม็ดมะปราง — purple */
+  --thaitone-muaangdoktabek: #b579a6;     /* ม่วงดอกตะแบก — soft purple */
+  --thaitone-muaangdokphaktohp: #776fa5;  /* ม่วงดอกผักตบ — blue-violet */
+  /* Pink */
+  --thaitone-hongsabaht: #df92a3;     /* หงสบาท — pink */
+  --thaitone-khwaaipheuuak: #efc5b5;  /* ควายเผือก — light peach */
+  /* Brown / maroon (Thai tones) */
+  --thaitone-namtaan: #7b4a34;        /* น้ำตาล — brown */
+  --thaitone-namtaanmai: #522e1a;     /* น้ำตาลไหม้ — dark brown */
+  --thaitone-maroon: #6b1116;         /* deep maroon */
+  --thaitone-brick: #8b3a3a;          /* warm brick red */
+}
+
+/* Semantic palette: red-dominant with subtle green accents */
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+  --background: #5c2a2a;           /* soft dark red */
+  --foreground: var(--thaitone-ngachang);
+  --card: #6d3232;                 /* warm red card */
+  --card-foreground: var(--thaitone-ngachang);
+  --popover: #6d3232;
+  --popover-foreground: var(--thaitone-ngachang);
+  --primary: #b91c23;              /* rich red */
+  --primary-foreground: var(--thaitone-ngachang);
+  --secondary: #4a3d2e;            /* warm brown-red */
+  --secondary-foreground: var(--thaitone-ngachang);
+  --muted: #6b4440;
+  --muted-foreground: var(--thaitone-nuaanjan);
+  --accent: var(--thaitone-khiewtungchaae);  /* subtle green accent */
+  --accent-foreground: var(--thaitone-ngachang);
+  --destructive: var(--thaitone-daengdtat);
+  --destructive-foreground: var(--thaitone-ngachang);
+  --border: rgba(255, 253, 224, 0.15);
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+  --input-background: #5c3a3a;
+  --switch-background: var(--thaitone-brick);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --ring: var(--thaitone-khiewtungchaae);    /* subtle green focus ring */
+  --chart-1: var(--thaitone-champa);
+  --chart-2: var(--thaitone-daengchat);
+  --chart-3: var(--thaitone-khiewtungchaae); /* green */
+  --chart-4: var(--thaitone-saehn);
+  --chart-5: var(--thaitone-nuaanjan);
+  --radius: 0.75rem;
+  --nav-height: 4rem;
+  --sidebar: #6d3232;
+  --sidebar-foreground: var(--thaitone-ngachang);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--thaitone-ngachang);
+  --sidebar-accent: #4a3d2e;
+  --sidebar-accent-foreground: var(--thaitone-ngachang);
+  --sidebar-border: rgba(255, 253, 224, 0.15);
+  --sidebar-ring: var(--thaitone-khiewtungchaae);
+  --transition-duration: 200ms;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --background: var(--thaitone-kromtha);
+  --foreground: var(--thaitone-ngachang);
+  --card: var(--thaitone-meckhraam);
+  --card-foreground: var(--thaitone-ngachang);
+  --popover: var(--thaitone-khraam);
+  --popover-foreground: var(--thaitone-ngachang);
+  --primary: var(--thaitone-champa);
+  --primary-foreground: var(--thaitone-meckhraam);
+  --secondary: var(--thaitone-morkhraam);
+  --secondary-foreground: var(--thaitone-ngachang);
+  --muted: var(--thaitone-khraam);
+  --muted-foreground: var(--thaitone-mork);
+  --accent: var(--thaitone-nuaanjan);
+  --accent-foreground: var(--thaitone-meckhraam);
+  --destructive: var(--thaitone-daengchat);
+  --destructive-foreground: var(--thaitone-ngachang);
+  --border: rgba(255, 253, 224, 0.15);
+  --input: var(--thaitone-khraam);
+  --ring: var(--thaitone-champa);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --chart-1: var(--thaitone-champa);
+  --chart-2: var(--thaitone-khiewnamlai);
+  --chart-3: var(--thaitone-namlai);
+  --chart-4: var(--thaitone-saehn);
+  --chart-5: var(--thaitone-muaangdoktabek);
+  --sidebar: var(--thaitone-meckhraam);
+  --sidebar-foreground: var(--thaitone-ngachang);
+  --sidebar-primary: var(--thaitone-champa);
+  --sidebar-primary-foreground: var(--thaitone-meckhraam);
+  --sidebar-accent: var(--thaitone-khraam);
+  --sidebar-accent-foreground: var(--thaitone-ngachang);
+  --sidebar-border: var(--thaitone-khraam);
+  --sidebar-ring: var(--thaitone-champa);
 }
 
 @theme inline {
@@ -117,27 +165,23 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
-  /* Thai-inspired color palette for massage studio */
-  --color-emerald-50: #ecfdf5;
-  --color-emerald-100: #d1fae5;
-  --color-emerald-200: #a7f3d0;
-  --color-emerald-300: #6ee7b7;
-  --color-emerald-600: #059669;
-  --color-emerald-700: #047857;
-  --color-emerald-800: #065f46;
-  --color-emerald-900: #064e3b;
-  --color-amber-400: #fbbf24;
-  --color-amber-500: #f59e0b;
-  --color-amber-600: #d97706;
-  --color-amber-700: #b45309;
-  --color-cream-50: #fefce8;
-  --color-cream-100: #fef9c3;
-  --color-stone-500: #78716c;
-  --color-stone-600: #57534e;
-  --color-stone-700: #44403c;
-  --color-stone-800: #292524;
-  --color-stone-900: #1c1917;
+  /* THAITONE semantic aliases for components */
+  --color-thai-primary: var(--thaitone-khiewtong);
+  --color-thai-primary-dark: var(--thaitone-khiewbaikhaae);
+  --color-thai-gold: var(--thaitone-champa);
+  --color-thai-gold-muted: var(--thaitone-nuaanjan);
+  --color-thai-cream: var(--thaitone-ngachang);
+  --color-thai-cream-warm: var(--thaitone-khaophong);
+  --color-thai-terracotta: var(--thaitone-dindaeng);
+  --color-thai-red: var(--thaitone-daengchat);
+  --color-thai-text-muted: var(--thaitone-morkhraam);
+  --color-thai-teal: var(--thaitone-khiewnamlai);
+  --color-thai-navy: var(--thaitone-kromtha);
+  --color-thai-orange: var(--thaitone-saehn);
+  --color-thai-mist: var(--thaitone-mork);
+  --color-thai-ivory: var(--thaitone-khaophong);
+  --color-thai-brown: var(--thaitone-namtaan);
+  --color-thai-maroon: var(--thaitone-maroon);
 }
 
 @layer base {
@@ -147,17 +191,24 @@
 
   html {
     scroll-behavior: smooth;
-    /* Prevent iOS from adjusting font sizes */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    height: 100%;
   }
 
   body {
     @apply bg-background text-foreground;
-    /* Improve text rendering on mobile */
+    min-height: 100%;
+    min-height: 100dvh;
+    font-family: "DM Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, .section-heading, .hero-heading {
+    font-family: "Cormorant Garamond", Georgia, serif;
   }
 
   /* Touch optimization for interactive elements */
@@ -219,5 +270,377 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+/* Section headings – Swiss minimal: clear hierarchy, no flourish */
+.section-heading {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.hero-heading {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* Swiss grid: 12 columns, consistent gutter, max-width container */
+.swiss-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-gutter, 1.5rem);
+  padding-right: var(--grid-gutter, 1.5rem);
+}
+
+.swiss-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gutter, 1.5rem);
+}
+
+@media (min-width: 640px) {
+  .swiss-container { padding-left: 2rem; padding-right: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .swiss-container { padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+
+/* Hero: slow Ken Burns effect on background image */
+@keyframes hero-ken-burns {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+  100% { transform: scale(1.08) translate(-1.5%, -1%) rotate(0.2deg); }
+}
+
+.hero-bg-ken-burns {
+  animation: hero-ken-burns 25s ease-in-out infinite alternate;
+}
+
+/* Sliding "BOOK NOW" marquee below hero — Vitaly-style, pause on hover, theme-aware */
+.marquee-section {
+  --marquee-spacing: 30px;
+  --marquee-background-color: var(--background);
+  --marquee-text-color: var(--foreground);
+  --marquee-speed: 65s;
+  --marquee-padding-top: 16px;
+  --marquee-padding-bottom: 16px;
+  overflow: hidden;
+  background-color: var(--marquee-background-color);
+  padding-top: var(--marquee-padding-top);
+  padding-bottom: var(--marquee-padding-bottom);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.marquee-link {
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--marquee-text-color);
+  cursor: pointer;
+}
+
+.marquee-link:hover,
+.marquee-link:focus-visible {
+  color: var(--marquee-text-color);
+  text-decoration: none;
+}
+
+.marquee-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.marquee__content {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-speed) linear infinite;
+  padding-left: var(--marquee-spacing);
+}
+
+/* Vitaly exact: pause on hover — selector on section so hover anywhere pauses */
+.marquee-section:hover .marquee-container {
+  animation-play-state: paused !important;
+}
+
+.marquee-link:hover .marquee__content,
+.marquee-link:focus .marquee__content {
+  animation-play-state: paused !important;
+}
+
+.marquee__content span {
+  flex: 0 0 auto;
+  padding-right: var(--marquee-spacing);
+  white-space: nowrap;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+    animation: none;
+  }
+}
+
+/* Urgency bar — CTR booster */
+.urgency-bar {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* HIDE UNTIL REAL DATA — remove .disabled class when metrics are verified */
+.urgency-bar.disabled,
+.bookings-counter.disabled,
+.spots-left.disabled {
+  display: none !important;
+}
+
+/* ENABLE LATER: add .disabled to the launch (.live) block when turning on real metrics */
+
+/* Mobile CTA: 100% width below 480px, min 60px height */
+@media (max-width: 480px) {
+  .hero-content-overlay .cta-primary,
+  .hero-content-overlay .cta-secondary,
+  .hero-content-overlay .cta-urgency {
+    width: 100%;
+    max-width: none;
+    min-height: 60px;
+  }
+}
+
+/* Sticky mobile CTA bar — +30% clicks */
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .mobile-sticky-cta .cta-sticky {
+    min-height: 60px;
+    width: 100%;
+  }
+}
+
+/* Call to Book — single CTA (tel: + WhatsApp fallback via confirm), massive on mobile */
+.call-to-book-btn {
+  --btn-height: 60px;
+  position: relative;
+  z-index: 10;
+  min-height: var(--btn-height);
+}
+@media (max-width: 480px) {
+  .call-to-book-btn {
+    width: 100%;
+    border-radius: 50px;
+  }
+  .hero-content-overlay .call-to-book-btn {
+    max-width: none;
+  }
+}
+
+/* CTA micro-animations: hover lift, pulse, glow (2026 UX) */
+.cta-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.cta-pulse {
+  animation: cta-pulse-glow 2.5s ease-in-out infinite;
+}
+.cta-pulse:hover {
+  animation: none;
+  box-shadow: 0 0 20px rgba(185, 28, 35, 0.4);
+}
+@keyframes cta-pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(185, 28, 35, 0.25); }
+  50% { box-shadow: 0 0 16px 4px rgba(185, 28, 35, 0.35); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-pulse {
+    animation: none;
+  }
+  .cta-lift:hover {
+    transform: none;
+  }
+}
+
+/* Sliding "Book now" ticker — pauses on hover (legacy, kept for reference) */
+.hero-ticker-wrap {
+  overflow: hidden;
+  user-select: none;
+}
+
+.hero-ticker-wrap:hover .hero-ticker {
+  animation-play-state: paused;
+}
+
+.hero-ticker {
+  display: flex;
+  width: 200vw;
+  animation: hero-ticker-scroll 30s linear infinite;
+}
+
+.hero-ticker-track {
+  display: flex;
+  flex: 0 0 100vw;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  white-space: nowrap;
+}
+
+.hero-ticker-item {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(0.9375rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--thaitone-ngachang);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+@keyframes hero-ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ticker {
+    animation: none;
+  }
+}
+
+/* Warm THAITONE green-to-gold gradient overlay (เขียวตอง → จำปา) */
+.hero-overlay-mesh {
+  background:
+    linear-gradient(165deg, rgba(92, 42, 42, 0.7) 0%, rgba(33, 114, 62, 0.12) 50%, transparent 65%),
+    linear-gradient(to top, rgba(42, 22, 22, 0.88) 0%, rgba(109, 50, 50, 0.4) 40%, transparent 60%);
+}
+
+/* Service card noise texture (subtle grain) */
+.service-card-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Sticky mobile CTA bar: safe area padding for notched devices */
+.booking-bar-safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+/* Booking bar shadow (warm dark) */
+.booking-bar-shadow {
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Nav: safe area so content doesn’t clip under notch */
+.nav-safe-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+/* Anchor targets: prevent content hiding under fixed nav when scrolling to section */
+#hero,
+#services,
+#about,
+#contact {
+  scroll-margin-top: calc(var(--nav-height) + env(safe-area-inset-top, 0));
+}
+
+/* Skip link: off-screen until focused (keyboard a11y) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  left: max(1rem, env(safe-area-inset-left));
+  top: max(1rem, env(safe-area-inset-top));
+  z-index: 100;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius);
+  text-decoration: none;
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Hero: full viewport below nav; 100vh image (Safari-safe) */
+.hero-section {
+  margin-top: var(--nav-height);
+  margin-top: calc(var(--nav-height) + env(safe-area-inset-top, 0));
+}
+
+/* Hero image: 100vh on ALL devices — Safari/iOS fix with aspect-ratio: auto */
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+.hero-bg-image {
+  width: 100vw;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: auto; /* Fix iOS Safari */
+  display: block;
+}
+
+/* Content overlaid at bottom of hero image */
+.hero-content-overlay {
+  pointer-events: none;
+}
+
+.hero-content-overlay > * {
+  pointer-events: auto;
+}
+
+/* UX: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-ken-burns {
+    animation: none;
+  }
+  .typewriter-heading span {
+    opacity: 1 !important;
+  }
+  .typewriter-cursor {
+    display: none;
   }
 }

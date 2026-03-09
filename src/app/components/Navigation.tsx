@@ -7,143 +7,99 @@ export function Navigation() {
 
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
-    
-    // Use requestAnimationFrame to ensure layout has settled after menu closes
     requestAnimationFrame(() => {
       const element = document.getElementById(id);
       if (element) {
-        const navHeight = 80; // Height of the fixed navbar
+        const navHeight = 64;
         const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - navHeight;
-
-        window.scrollTo({
-          top: Math.max(0, offsetPosition), // Ensure we don't scroll to negative values
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: Math.max(0, elementPosition - navHeight), behavior: 'smooth' });
       }
     });
   };
 
   return (
     <header>
-      <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-stone-200 z-50"
-        style={{ paddingTop: 'env(safe-area-inset-top)' }}
+      <nav
+        className="nav-safe-top fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/80 shadow-sm transition-colors"
       >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          <motion.div 
-            className="flex items-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="text-emerald-900 font-bold text-lg sm:text-xl">Nang Thai Aroma</span>
-          </motion.div>
+        <div className="swiss-container">
+          <div className="flex justify-between items-center h-16">
+            <a href="#hero" className="text-primary-foreground font-semibold text-sm tracking-tight uppercase text-shadow-section">
+              Nang Thai Massage
+            </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            <motion.button
-              onClick={() => scrollToSection('services')}
-              className="text-stone-600 hover:text-emerald-900 transition-colors"
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
+            <div className="hidden md:flex items-center gap-8">
+              <button
+                type="button"
+                onClick={() => scrollToSection('services')}
+                className="text-primary-foreground/90 hover:text-accent text-sm font-medium transition-colors text-shadow-section py-2 rounded focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+              >
+                Services
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection('about')}
+                className="text-primary-foreground/90 hover:text-accent text-sm font-medium transition-colors text-shadow-section py-2 rounded focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+              >
+                About
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection('contact')}
+                className="bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium rounded-xl hover:opacity-90 transition-colors shadow-md min-h-[44px] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+              >
+                Contact
+              </button>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-primary-foreground hover:text-accent transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen ? 'true' : 'false'}
             >
-              Services
-            </motion.button>
-            <motion.button
-              onClick={() => scrollToSection('about')}
-              className="text-stone-600 hover:text-emerald-900 transition-colors"
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
-            >
-              About
-            </motion.button>
-            <motion.button
-              onClick={() => scrollToSection('reviews')}
-              className="text-stone-600 hover:text-emerald-900 transition-colors"
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
-            >
-              Reviews
-            </motion.button>
-            <motion.button
-              onClick={() => scrollToSection('contact')}
-              className="bg-emerald-900 text-white px-6 py-2 rounded-md hover:bg-emerald-800 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact
-            </motion.button>
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <motion.button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-3 text-stone-600 touch-manipulation"
-            whileTap={{ scale: 0.9 }}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden border-t border-stone-200"
+              transition={{ duration: 0.2 }}
+              className="md:hidden overflow-hidden border-t border-primary-foreground/15 bg-background"
             >
-              <div className="pb-4 pt-4 space-y-2">
-                <motion.button
+              <div className="swiss-container py-4 space-y-1">
+                <button
+                  type="button"
                   onClick={() => scrollToSection('services')}
-                  className="block w-full text-left px-5 py-4 text-stone-600 hover:bg-stone-50 active:bg-stone-100 transition-colors touch-manipulation min-h-[48px] flex items-center text-base"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 }}
+                  className="block w-full text-left py-3 text-primary-foreground/90 hover:text-accent text-sm font-medium text-shadow-section"
                 >
                   Services
-                </motion.button>
-                <motion.button
+                </button>
+                <button
+                  type="button"
                   onClick={() => scrollToSection('about')}
-                  className="block w-full text-left px-5 py-4 text-stone-600 hover:bg-stone-50 active:bg-stone-100 transition-colors touch-manipulation min-h-[48px] flex items-center text-base"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.15 }}
+                  className="block w-full text-left py-3 text-primary-foreground/90 hover:text-accent text-sm font-medium text-shadow-section"
                 >
                   About
-                </motion.button>
-                <motion.button
-                  onClick={() => scrollToSection('reviews')}
-                  className="block w-full text-left px-5 py-4 text-stone-600 hover:bg-stone-50 active:bg-stone-100 transition-colors touch-manipulation min-h-[48px] flex items-center text-base"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  Reviews
-                </motion.button>
-                <motion.button
+                </button>
+                <button
+                  type="button"
                   onClick={() => scrollToSection('contact')}
-                  className="block w-full bg-emerald-900 text-white px-5 py-4 rounded-md hover:bg-emerald-800 active:bg-emerald-700 transition-colors touch-manipulation min-h-[48px] flex items-center justify-center text-base font-medium mt-2"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.25 }}
+                  className="block w-full text-left py-3 min-h-[48px] bg-primary text-primary-foreground -mx-4 px-4 mt-2 text-sm font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset"
                 >
                   Contact
-                </motion.button>
+                </button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-      </motion.nav>
+      </nav>
     </header>
   );
 }

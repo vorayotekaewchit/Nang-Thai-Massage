@@ -14,4 +14,17 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    base: '/',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-motion': ['motion'],
+          'vendor-lucide': ['lucide-react'],
+        },
+      },
+    },
+    cssCodeSplit: true,
+  },
 })

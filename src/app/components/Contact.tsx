@@ -1,116 +1,96 @@
-import { MapPin, Phone, Clock } from 'lucide-react';
+import React from 'react';
+import { MapPin, Phone, Clock, MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
+import { TEL_LINK, WHATSAPP_URL, PHONE_DISPLAY } from '../constants';
 
 export function Contact() {
   return (
-    <section id="contact" className="py-16 sm:py-24 md:py-32 bg-stone-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="max-w-2xl mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-emerald-900 mb-3 sm:mb-4" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 400 }}>
-            Visit Us
+    <section id="contact" className="py-24 md:py-32 bg-background">
+      <div className="swiss-container px-6 md:px-8">
+        <header className="mb-12">
+          <h2 className="text-primary-foreground text-3xl md:text-5xl font-bold tracking-tight mb-3 text-shadow-section">
+            Visit
           </h2>
-          <p className="text-stone-600 text-base sm:text-lg">
-            Located in the heart of Dundalk
+          <p className="text-lg text-primary-foreground/85 max-w-xl text-shadow-section">
+            Find us in Christianstown, Readypenny. Calls only.
           </p>
-        </motion.div>
+        </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-          <motion.div 
-            className="space-y-8 sm:space-y-12"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left: address + buttons */}
+          <motion.div
+            className="flex flex-col order-1"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            <motion.div 
-              className="space-y-3"
-              whileHover={{ x: 5 }}
-            >
-              <div className="flex items-center gap-2 text-emerald-900">
-                <MapPin size={20} strokeWidth={1.5} />
-                <span className="font-semibold">Location</span>
-              </div>
-              <p className="text-stone-600 leading-relaxed pl-7 text-sm sm:text-base">
-                Christianstown, Readypenny<br />
-                Dundalk, Co. Louth<br />
-                Ireland
-              </p>
-            </motion.div>
+            <p className="text-primary-foreground text-xl font-semibold mb-3 text-shadow-section">Nang Thai Massage</p>
+            <div className="space-y-1 text-base text-primary-foreground/90 text-shadow-section">
+              <p>Christianstown, Readypenny</p>
+              <p>Dundalk, Co. Louth</p>
+              <p>Ireland (A91 W582)</p>
+              <p className="pt-1">Free parking available</p>
+              <p>5 minutes from Dundalk town centre</p>
+            </div>
 
-            <motion.div 
-              className="space-y-3"
-              whileHover={{ x: 5 }}
-            >
-              <div className="flex items-center gap-2 text-emerald-900">
-                <Phone size={20} strokeWidth={1.5} />
-                <span className="font-semibold">Phone</span>
-              </div>
-              <div className="pl-7">
-                <motion.a 
-                  href="tel:+353"
-                  className="text-stone-600 hover:text-emerald-900 active:text-emerald-800 transition-colors text-base sm:text-base font-medium inline-block py-2 px-3 -ml-3 rounded-md hover:bg-stone-100 active:bg-stone-200 touch-manipulation min-h-[44px] flex items-center"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  +353 XX XXX XXXX
-                </motion.a>
-              </div>
-            </motion.div>
+            <div className="mt-6">
+              <a
+                href={TEL_LINK}
+                className="text-base text-primary-foreground/90 hover:text-accent font-medium transition-colors text-shadow-section hover:underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background rounded"
+              >
+                {PHONE_DISPLAY}
+              </a>
+            </div>
 
-            <motion.div 
-              className="space-y-3"
-              whileHover={{ x: 5 }}
-            >
-              <div className="flex items-center gap-2 text-emerald-900">
-                <Clock size={20} strokeWidth={1.5} />
-                <span className="font-semibold">Hours</span>
-              </div>
-              <div className="space-y-3 text-stone-600 pl-7 text-sm sm:text-base">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 max-w-xs">
-                  <span>Monday - Friday</span>
-                  <span className="font-medium">10:00 - 20:00</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 max-w-xs">
-                  <span>Saturday</span>
-                  <span className="font-medium">10:00 - 18:00</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 max-w-xs">
-                  <span>Sunday</span>
-                  <span className="font-medium">12:00 - 18:00</span>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-thai-gold text-thai-maroon px-8 py-3 text-base font-semibold rounded-2xl hover:bg-thai-gold-muted transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background shadow-md text-shadow-section min-h-[48px] active:scale-[0.98]"
+              >
+                <MessageCircle size={20} strokeWidth={2} aria-hidden />
+                WhatsApp
+              </a>
+              <a
+                href={TEL_LINK}
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground text-primary-foreground px-8 py-3 text-base font-semibold rounded-2xl hover:bg-primary-foreground/10 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background text-shadow-section min-h-[48px] active:scale-[0.98]"
+              >
+                <Phone size={20} strokeWidth={2} aria-hidden />
+                Call
+              </a>
+            </div>
 
-          <motion.div 
-            className="border border-stone-200 h-[300px] sm:h-[400px] lg:h-full lg:min-h-[400px] rounded-lg overflow-hidden"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="w-full h-full bg-stone-100 flex items-center justify-center">
-              <div className="text-center p-6 sm:p-8">
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                <MapPin size={48} className="text-stone-600 mx-auto mb-4" strokeWidth={1.5} />
-                </motion.div>
-                <p className="text-stone-600 text-sm sm:text-base">
-                  Christianstown, Readypenny<br />
-                  Dundalk, Co. Louth
-                </p>
-              </div>
+            <div className="mt-6 mb-6">
+              <p className="text-sm font-medium text-primary-foreground mb-1 text-shadow-section">Hours</p>
+              <p className="text-base text-primary-foreground/90 text-shadow-section">Weekends: 9:00 – 21:00</p>
+              <p className="text-base text-primary-foreground/90 mt-1 text-shadow-section">Weekdays: Higher rate, to be discussed</p>
             </div>
           </motion.div>
+
+          {/* Right: map only */}
+          <div className="flex flex-col order-2">
+            <motion.div
+              className="rounded-2xl overflow-hidden shadow-lg mb-8 h-64 md:h-72"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 }}
+            >
+              <iframe
+                title="Nang Thai Massage — Christianstown, Readypenny, Dundalk (A91 W582)"
+                src="https://www.google.com/maps?q=A91+W582+Ireland&z=16&output=embed"
+                width="100%"
+                height="100%"
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </motion.div>
+            <p className="text-base text-primary-foreground/80 font-medium text-shadow-section">Calls only.</p>
+          </div>
         </div>
       </div>
     </section>
