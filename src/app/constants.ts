@@ -8,8 +8,8 @@ export const TEL_LINK = `tel:+${PHONE_NUMBER}`;
 /** Used for "Call or WhatsApp?" fallback on Call to Book button (no separate WhatsApp button) */
 export const WHATSAPP_URL = `https://wa.me/${PHONE_NUMBER}`;
 
-/** Book now page path (e.g. for marquee CTA) */
-export const BOOK_NOW_PATH = '/pages/book-now';
+/** Book now page path — respects Vite base (GitHub Pages /repo/ vs custom domain root) */
+export const BOOK_NOW_PATH = `${import.meta.env.BASE_URL}pages/book-now`
 
 /** Toggle: set true only when you have real booking/spot data (schema-style) */
 export const SHOW_REAL_METRICS = false;

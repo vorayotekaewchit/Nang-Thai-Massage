@@ -14,7 +14,7 @@ function SectionFallback() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background site-noise">
       <a
         href="#main-content"
         className="skip-link absolute left-[-9999px] focus:z-[100] focus:px-4 focus:py-3 focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:no-underline"

@@ -88,16 +88,11 @@ The site will then be live at **https://nangthaimassage.ie** (or **https://www.n
 
 ---
 
-## 6. If you use the default project URL first
+## 6. Asset paths (GitHub Pages project URL vs custom domain)
 
-The app is built with **base: `/`** for the custom domain. Before the domain is connected, the site is available at:
+GitHub Pages **project sites** are served at **`https://<username>.github.io/<repo>/`**. The build must load JS/CSS from **`/<repo>/assets/...`**, not **`/assets/...`**, or the page will stay **blank (white)**.
 
-**`https://<yourusername>.github.io/Nang-Thai-Massage/`**
+- **Default (GitHub Actions):** The workflow sets **`CI`** and **`GITHUB_REPOSITORY`**. **`vite.config.ts`** uses the repo name automatically (e.g. **`/Nang-Thai-Massage/`**).
+- **Custom domain at the site root** (e.g. **nangthaimassage.ie**): In the repo go to **Settings → Secrets and variables → Actions → Variables** and add **`VITE_BASE_PATH`** with value **`/`**. Redeploy. Remove or change that variable if you go back to testing only the **`github.io/<repo>/`** URL.
 
-If assets or routing look wrong there, you can temporarily build for that path by setting in **`vite.config.ts`**:
-
-```ts
-base: '/Nang-Thai-Massage/',
-```
-
-Then change it back to **`base: '/'`** and redeploy when you switch to **nangthaimassage.ie**.
+Local **`npm run build`** without **`CI`** still uses **`base: '/'`** (fine for **`vite preview`** at the dist root).

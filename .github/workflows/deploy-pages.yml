@@ -32,6 +32,9 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          # Optional: set repo variable VITE_BASE_PATH=/ when the site uses a custom domain at the domain root
+          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH }}
         run: npm run build
 
       - name: Setup Pages

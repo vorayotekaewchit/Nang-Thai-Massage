@@ -88,7 +88,6 @@
   --sidebar-ring: var(--thaitone-khiewtungchaae);
   --transition-duration: 200ms;
 }
-
 .dark {
   --background: var(--thaitone-kromtha);
   --foreground: var(--thaitone-ngachang);
@@ -208,7 +207,7 @@
   }
 
   h1, h2, h3, h4, .section-heading, .hero-heading {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: "DM Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   /* Touch optimization for interactive elements */
@@ -378,7 +377,7 @@
   flex: 0 0 auto;
   padding-right: var(--marquee-spacing);
   white-space: nowrap;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "DM Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -509,7 +508,7 @@
 }
 
 .hero-ticker-item {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "DM Sans", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(0.9375rem, 2.5vw, 1.25rem);
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -540,6 +539,13 @@
 /* Service card noise texture (subtle grain) */
 .service-card-grain {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Global site noise — 10% on backgrounds only (text and images sit above, so stay clear) */
+.site-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.10'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }

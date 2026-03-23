@@ -20,7 +20,7 @@ export function Navigation() {
   return (
     <header>
       <nav
-        className="nav-safe-top fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/80 shadow-sm transition-colors"
+        className="nav-safe-top fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/80 shadow-sm transition-colors site-noise"
       >
         <div className="swiss-container">
           <div className="flex justify-between items-center h-16">
