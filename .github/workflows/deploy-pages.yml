@@ -33,7 +33,7 @@ jobs:
 
       - name: Build
         env:
-          # Optional: set repo variable VITE_BASE_PATH=/ when the site uses a custom domain at the domain root
+          # Optional override only (default in vite.config is relative ./ — works for github.io/repo/ and custom domain)
           VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH }}
         run: npm run build
 

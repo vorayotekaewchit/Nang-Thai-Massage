@@ -88,14 +88,16 @@ The site will then be live at **https://nangthaimassage.ie** (or **https://www.n
 
 ---
 
-## 6. Asset paths (GitHub Pages project URL vs custom domain)
+## 6. Asset paths (blank white page fix)
 
-GitHub Pages **project sites** are served at **`https://<username>.github.io/<repo>/`**. The build must load JS/CSS from **`/<repo>/assets/...`**, not **`/assets/...`**, or the page will stay **blank (white)**.
+The Vite **`base`** is set to **`./`** (relative) by default. That way **one build** loads JS/CSS correctly on:
 
-- **Default (GitHub Actions):** The workflow sets **`CI`** and **`GITHUB_REPOSITORY`**. **`vite.config.ts`** uses the repo name automatically (e.g. **`/Nang-Thai-Massage/`**).
-- **Custom domain at the site root** (e.g. **nangthaimassage.ie**): In the repo go to **Settings → Secrets and variables → Actions → Variables** and add **`VITE_BASE_PATH`** with value **`/`**. Redeploy. Remove or change that variable if you go back to testing only the **`github.io/<repo>/`** URL.
+- **`https://<username>.github.io/<repo>/`**
+- **`https://nangthaimassage.ie/`** (custom domain at site root)
 
-Local **`npm run build`** without **`CI`** still uses **`base: '/'`** (fine for **`vite preview`** at the dist root).
+If you previously set a GitHub Actions variable **`VITE_BASE_PATH`** (e.g. to **`/`**), **remove it** unless you have a special hosting layout — wrong **`base`** values are the usual cause of a **blank page** (browser 404 on **`/assets/*.js`**).
+
+Optional: set **`VITE_BASE_PATH`** only for a non-standard path (must end with **`/`**).
 
 ---
 

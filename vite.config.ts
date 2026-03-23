@@ -4,19 +4,19 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 /**
- * GitHub Pages project sites live at https://<user>.github.io/<repo>/ — assets must use that prefix.
- * Set repo variable VITE_BASE_PATH=/ when using a custom domain at the site root (e.g. nangthaimassage.ie).
+ * Relative base so the same build works everywhere GitHub Pages serves the site:
+ * - https://<user>.github.io/<repo>/
+ * - https://nangthaimassage.ie/ (custom domain at root)
+ *
+ * Absolute bases (/repo/ vs /) were easy to get wrong → JS/CSS 404 → blank white page.
+ * Override only if you know you need it: VITE_BASE_PATH=/custom/
  */
 function resolveBase(): string {
   const explicit = process.env.VITE_BASE_PATH?.trim()
   if (explicit) {
     return explicit.endsWith('/') ? explicit : `${explicit}/`
   }
-  if (process.env.CI && process.env.GITHUB_REPOSITORY) {
-    const repo = process.env.GITHUB_REPOSITORY.split('/')[1]
-    if (repo) return `/${repo}/`
-  }
-  return '/'
+  return './'
 }
 
 export default defineConfig({
@@ -27,7 +27,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
     },
   },
