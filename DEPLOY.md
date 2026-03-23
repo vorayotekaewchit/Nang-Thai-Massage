@@ -96,3 +96,45 @@ GitHub Pages **project sites** are served at **`https://<username>.github.io/<re
 - **Custom domain at the site root** (e.g. **nangthaimassage.ie**): In the repo go to **Settings → Secrets and variables → Actions → Variables** and add **`VITE_BASE_PATH`** with value **`/`**. Redeploy. Remove or change that variable if you go back to testing only the **`github.io/<repo>/`** URL.
 
 Local **`npm run build`** without **`CI`** still uses **`base: '/'`** (fine for **`vite preview`** at the dist root).
+
+---
+
+## 7. Troubleshooting: `DNS_PROBE_FINISHED_NXDOMAIN` (Chrome)
+
+That error means **DNS could not find `nangthaimassage.ie`** — the domain is not resolving at all. GitHub Pages is not involved yet; fix **DNS at your registrar** first.
+
+### Checklist
+
+1. **Domain registered and active**  
+   Confirm **nangthaimassage.ie** is paid and not expired (SmartHost or whoever you bought it from).
+
+2. **Nameservers**  
+   In the registrar, check **which nameservers** are set (e.g. SmartHost default vs Cloudflare). Your **DNS records must be created on whichever DNS is authoritative** (where those nameservers point).
+
+3. **Records for GitHub Pages** (create where DNS is managed):
+
+   **Apex (`nangthaimassage.ie` no www)** — add **four A records** (Host `@` or blank), values from [GitHub’s docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain):
+
+   - `185.199.108.153`  
+   - `185.199.109.153`  
+   - `185.199.110.153`  
+   - `185.199.111.153`
+
+   **Or use `www`** — one **CNAME**: host **`www`** → **`YOURUSERNAME.github.io`** (your GitHub username, no `https://`). In GitHub **Settings → Pages**, set custom domain to **`www.nangthaimassage.ie`** if you use this.
+
+4. **GitHub repo**  
+   **Settings → Pages → Custom domain:** enter **`nangthaimassage.ie`** (or **`www.…`** to match your DNS). Save. Wait for “DNS check” to pass (can take minutes to 48h after DNS is correct).
+
+5. **Verify DNS** (Terminal):
+
+   ```bash
+   dig nangthaimassage.ie +short
+   ```
+
+   You should see IP addresses (for A records) or a CNAME chain — **not** empty / NXDOMAIN.
+
+### Until DNS works
+
+Open the **GitHub Pages default URL**:  
+`https://<yourusername>.github.io/<repository-name>/`  
+If that loads, the site is fine; only the custom domain DNS is missing or wrong.
