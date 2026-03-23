@@ -9,7 +9,17 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints (e.g. `http://localhost:5173`).
+Open the URL Vite prints (e.g. **`http://localhost:5173`**).
+
+### Do **not** use “Live Server” or “Open with Live Server” on `index.html`
+
+This project is **Vite + React + TypeScript**. The HTML loads **`/src/main.tsx`**. Only the **Vite dev server** compiles that to JavaScript and sends the correct MIME type.
+
+If you use the **Live Server** extension (you’ll see **“Live reload enabled”** in the corner), the browser loads raw `.tsx` as **`application/octet-stream`** → error:
+
+`Failed to load module script … MIME type "application/octet-stream"`
+
+**Fix:** Stop Live Server, run **`npm run dev`**, open **`http://localhost:5173`** (not the Live Server port).
 
 ## Build
 
