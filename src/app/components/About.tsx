@@ -44,6 +44,7 @@ export function About() {
                 height={800}
                 loading="lazy"
                 decoding="async"
+                fetchPriority="low"
               />
             </motion.div>
           </div>

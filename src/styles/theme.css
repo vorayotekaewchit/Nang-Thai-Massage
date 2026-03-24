@@ -287,6 +287,30 @@
   line-height: 1.1;
 }
 
+/* Hero main headline: exactly two lines — no internal wrapping (avoid text-wrap:balance; it splits mid-phrase) */
+.hero-heading.hero-headline-split {
+  font-size: clamp(1.0625rem, 2.4vw + 0.7rem, 3.5rem);
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  max-width: 100%;
+}
+
+.hero-headline-split .hero-headline-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-headline-split .hero-headline-line + .hero-headline-line {
+  margin-top: 0.12em;
+}
+
+/* Very narrow: shrink further so nowrap lines still fit */
+@media (max-width: 360px) {
+  .hero-heading.hero-headline-split {
+    font-size: clamp(0.9375rem, 2.1vw + 0.55rem, 3.5rem);
+  }
+}
+
 /* Swiss grid: 12 columns, consistent gutter, max-width container */
 .swiss-container {
   width: 100%;
@@ -319,6 +343,13 @@
 
 .hero-bg-ken-burns {
   animation: hero-ken-burns 25s ease-in-out infinite alternate;
+}
+
+/* Faster perceived UX on small screens: skip Ken Burns (less GPU, quicker paint) */
+@media (max-width: 768px) {
+  .hero-bg-ken-burns {
+    animation: none;
+  }
 }
 
 /* Sliding "BOOK NOW" marquee below hero — Vitaly-style, pause on hover, theme-aware */

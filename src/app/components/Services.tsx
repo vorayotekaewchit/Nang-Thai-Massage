@@ -67,6 +67,7 @@ export function Services() {
                 height={800}
                 loading="lazy"
                 decoding="async"
+                fetchPriority="low"
               />
             </div>
           </div>

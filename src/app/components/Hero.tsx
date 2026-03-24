@@ -1,3 +1,4 @@
+import { Suspense, lazy, type MouseEvent } from 'react';
 import { Phone, Star } from 'lucide-react';
 import { motion } from 'motion/react';
 import {
@@ -6,16 +7,17 @@ import {
   BOOK_NOW_PATH,
   SPOTS_LEFT_TODAY,
   BOOKINGS_DISPLAY,
-  HERO_HEADLINE,
   SHOW_REAL_METRICS,
   LAUNCH_URGENCY_LINE,
   LAUNCH_SOCIAL_LINE,
   LAUNCH_CTA_SUFFIX,
 } from '../constants';
-import { BookNowMarquee } from './BookNowMarquee';
-import { TypewriterHeading } from './TypewriterHeading';
 
-function handleCallToBookClick(e: React.MouseEvent<HTMLAnchorElement>) {
+const BookNowMarquee = lazy(() =>
+  import('./BookNowMarquee').then((m) => ({ default: m.BookNowMarquee })),
+);
+
+function handleCallToBookClick(e: MouseEvent<HTMLAnchorElement>) {
   if (!confirm('Call or WhatsApp?')) {
     e.preventDefault();
     window.location.href = WHATSAPP_URL;
@@ -39,6 +41,7 @@ export function Hero() {
             className="hero-bg-image hero-bg-ken-burns"
             width={1200}
             height={675}
+            sizes="100vw"
             fetchPriority="high"
             decoding="async"
           />
@@ -78,9 +81,15 @@ export function Hero() {
             Dundalk · Christianstown
           </motion.p>
 
-          <motion.div className="mt-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.1 }}>
-            <TypewriterHeading text={HERO_HEADLINE} />
-          </motion.div>
+          <motion.h1
+            className="hero-heading hero-headline-split tracking-tight text-white text-shadow-hero mt-2"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.08, ease: 'easeOut' }}
+          >
+            <span className="hero-headline-line">Dundalk&apos;s favourite escape. Authentic</span>
+            <span className="hero-headline-line">Thai massage, right here in Louth.</span>
+          </motion.h1>
 
           <motion.p
             className="text-white/95 text-base md:text-lg mt-4 font-normal leading-relaxed max-w-lg text-shadow-hero"
@@ -142,7 +151,9 @@ export function Hero() {
       </div>
       </div>
 
-      <BookNowMarquee />
+      <Suspense fallback={null}>
+        <BookNowMarquee />
+      </Suspense>
     </section>
   );
 }
