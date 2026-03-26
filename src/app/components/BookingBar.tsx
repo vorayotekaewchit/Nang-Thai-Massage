@@ -1,7 +1,8 @@
+import { useEffect, useState, type MouseEvent } from 'react';
 import { Phone } from 'lucide-react';
 import { TEL_LINK, WHATSAPP_URL, BOOK_NOW_PATH, SPOTS_LEFT_TODAY, SHOW_REAL_METRICS, LAUNCH_CTA_SUFFIX } from '../constants';
 
-function handleCallToBookClick(e: React.MouseEvent<HTMLAnchorElement>) {
+function handleCallToBookClick(e: MouseEvent<HTMLAnchorElement>) {
   if (!confirm('Call or WhatsApp?')) {
     e.preventDefault();
     window.location.href = WHATSAPP_URL;
@@ -9,6 +10,31 @@ function handleCallToBookClick(e: React.MouseEvent<HTMLAnchorElement>) {
 }
 
 export function BookingBar() {
+  const [showStickyBar, setShowStickyBar] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById('hero');
+    if (!hero) {
+      setShowStickyBar(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Hide sticky CTA while hero is in view to avoid duplicate CTAs.
+        setShowStickyBar(!entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
+  if (!showStickyBar) {
+    return null;
+  }
+
   return (
     <div
       className="mobile-sticky-cta fixed bottom-0 left-0 right-0 z-[1000] md:hidden bg-primary/98 backdrop-blur-sm border-t border-primary/15 booking-bar-safe-bottom booking-bar-shadow"

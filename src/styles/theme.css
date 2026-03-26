@@ -649,6 +649,13 @@
   overflow: hidden;
 }
 
+/* Extra headroom on phones so bottom CTA copy never clips */
+@media (max-width: 768px) {
+  .hero-image-wrap {
+    min-height: calc(100dvh + 5rem);
+  }
+}
+
 .hero-bg-image {
   width: 100vw;
   width: 100%;

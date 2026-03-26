@@ -42,7 +42,6 @@ export function Hero() {
             width={1200}
             height={675}
             sizes="100vw"
-            fetchPriority="high"
             decoding="async"
           />
         </picture>
@@ -50,7 +49,7 @@ export function Hero() {
         {/* Scrim under content for readability on bright areas of the image */}
         <div className="absolute bottom-0 left-0 right-0 h-2/3 min-h-[320px] bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" aria-hidden />
         {/* Content overlaid at bottom of hero image (inside wrap so it sits over 100vh area) */}
-        <div className="hero-content-overlay absolute bottom-0 left-0 right-0 z-10 w-full swiss-container pb-24 md:pb-32">
+        <div className="hero-content-overlay absolute bottom-0 left-0 right-0 z-10 w-full swiss-container pb-32 md:pb-36">
           <div className="max-w-2xl">
           {/* Urgency bar — launch-safe when SHOW_REAL_METRICS false; real data when true */}
           <motion.div
